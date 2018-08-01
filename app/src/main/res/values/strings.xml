@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">YammiWithShabi</string>
+    <string name="edit_Name">Enter your name</string>
+    <string name="button_send">send</string>
+    <string name="button_LogIn">LogIn</string>
+    <string name="Text_Show_Name">Name</string>
+    <string name="logInHeader">Welcome To YammyWithShabi press your name to login</string>
+    <string name="welcome">Welcome to YammyWithShabi</string>
+</resources>
