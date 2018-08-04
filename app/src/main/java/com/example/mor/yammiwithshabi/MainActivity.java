@@ -29,18 +29,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "MainActivity";
     private FirebaseAuth mAuth;
     protected GoogleSignInClient mGoogleSignInClient;
-    private TextView mStatusTextView;
-    private TextView mDetailTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_main);
-
-        mStatusTextView = findViewById(R.id.show_email);
-        mDetailTextView = findViewById(R.id.show_id);
-
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -113,14 +107,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void updateUI(FirebaseUser user) {
         //hideProgressDialog();
         if (user != null) {
-            mStatusTextView.setText(user.getEmail());
-            mDetailTextView.setText(user.getUid());
+            Intent intent = new Intent(this, HomePageActivity.class);
 
+            //intent.putExtra(LOG_IN_NAME, user);
+            startActivity(intent);
+
+            // set login not visible
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
+
            // findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
         } else {
             //mStatusTextView.setText(R.string.signed_out);
-            mDetailTextView.setText(null);
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             //findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);

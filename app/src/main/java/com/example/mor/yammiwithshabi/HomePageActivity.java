@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class HomePageActivity extends AppCompatActivity {
 
     @Override
@@ -12,11 +15,10 @@ public class HomePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        Intent intent = getIntent();
-        String name = intent.getStringExtra(MainActivity.LOG_IN_NAME);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.nameView);
-        textView.setText("Welcome " + name);
+        textView.setText("Welcome " + user.getEmail());
     }
 }
