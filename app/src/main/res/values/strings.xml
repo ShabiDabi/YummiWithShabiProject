@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">YammiWithShabi</string>
-    <string name="Text_show_id">Enter your name</string>
     <string name="button_send">send</string>
-    <string name="button_LogIn">LogIn</string>
     <string name="Text_Show_Email">Name</string>
     <string name="logInHeader">Welcome To YammyWithShabi press your name to login</string>
     <string name="welcome">Welcome to YammyWithShabi</string>
     <string name="ShowEmail">email</string>
     <string name="ShowId">Id</string>
+    <string name="logOut_Button">logOut</string>
+    <string name="next_page_button">Next</string>
+    <string name="hellow_TextField">HELLOW</string>
 </resources>

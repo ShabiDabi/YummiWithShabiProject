@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public void onClick(View view) {
+    public void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -104,23 +104,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
     }
 
+    private void signOut() {
+        // Firebase sign out
+        mAuth.signOut();
+
+        // Google sign out
+        mGoogleSignInClient.signOut().addOnCompleteListener(this,
+                new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        updateUI(null);
+                    }
+                });
+    }
+
     private void updateUI(FirebaseUser user) {
         //hideProgressDialog();
         if (user != null) {
-            Intent intent = new Intent(this, HomePageActivity.class);
-
-            //intent.putExtra(LOG_IN_NAME, user);
-            startActivity(intent);
-
             // set login not visible
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
+            findViewById(R.id.next_page).setEnabled(true);
+            TextView helloTest = findViewById(R.id.hellow_text);
+            helloTest.setText("Welcome " + user.getEmail());
 
            // findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
         } else {
             //mStatusTextView.setText(R.string.signed_out);
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
+
+            findViewById(R.id.next_page).setEnabled(false);
+            TextView helloTest = findViewById(R.id.hellow_text);
+            helloTest.setText(R.string.hellow_TextField);
             //findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
+        }
+    }
+
+    public void nextPage(){
+        Intent intent = new Intent(this, HomePageActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClick(View v) {
+        int i = v.getId();
+        if (i == R.id.sign_in_button) {
+            signIn();
+        } else if (i == R.id.sign_out_button) {
+            signOut();
+        }else if (i == R.id.next_page) {
+            nextPage();
         }
     }
 
