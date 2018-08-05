@@ -8,5 +8,11 @@
     <string name="ShowId">Id</string>
     <string name="logOut_Button">logOut</string>
     <string name="next_page_button">Next</string>
-    <string name="hellow_TextField">HELLOW</string>
+    <string name="hellow_TextField">HELLO</string>
+    <string name="home">Home</string>
+    <string name="feed">Feed</string>
+    <string name="logOut">Log out</string>
+    <string name="drawer_item_home">Home</string>
+    <string name="drawer_item_Feed">Feed</string>
+    <string name="drawer_item_logOut">Log Out</string>
 </resources>
