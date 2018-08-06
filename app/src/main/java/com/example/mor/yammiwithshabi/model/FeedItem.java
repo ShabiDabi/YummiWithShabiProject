@@ -9,7 +9,7 @@ public class FeedItem {
     @PrimaryKey
     @NonNull
     public String id;
-    public Date dateCreated;
+    public String dateCreated;
     public String picture;
     public String userID;
     public String text;
@@ -23,7 +23,7 @@ public class FeedItem {
         return userID;
     }
 
-    public Date getDateCreated() {
+    public String getDateCreated() {
         return dateCreated;
     }
 
@@ -45,7 +45,7 @@ public class FeedItem {
         this.userID = userID;
     }
 
-    public void setbDateCreated(Date date) {
+    public void setbDateCreated(String date) {
         this.dateCreated = date;
     }
 
