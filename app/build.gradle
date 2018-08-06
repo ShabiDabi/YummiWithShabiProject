@@ -16,6 +16,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/java/com/example/mor/yammiwithshabi/model']
+        }
+    }
 }
 
 dependencies {
@@ -27,6 +32,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.google.firebase:firebase-auth:16.0.2'
+    implementation 'com.google.firebase:firebase-database:15.0.0'
+    implementation 'com.google.firebase:firebase-storage:15.0.2'
     implementation 'com.google.android.gms:play-services-auth:15.0.1'
     implementation 'com.android.support:design:27.1.1'
 
@@ -34,10 +41,14 @@ dependencies {
         transitive = true
     }
 
-//required support lib modules
+    //required support lib modules
     implementation "com.android.support:recyclerview-v7:27.1.1"
     implementation "com.android.support:support-annotations:27.1.1"
     implementation "com.android.support:design:27.1.1"
+
+    // Room
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
 
 }
 

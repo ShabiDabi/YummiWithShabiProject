@@ -12,7 +12,7 @@
     <string name="home">Home</string>
     <string name="feed">Feed</string>
     <string name="logOut">Log out</string>
-    <string name="drawer_item_home">Home</string>
-    <string name="drawer_item_Feed">Feed</string>
+    <string name="drawer_item_home">Feed</string>
+    <string name="drawer_item_profile">Profile</string>
     <string name="drawer_item_logOut">Log Out</string>
 </resources>

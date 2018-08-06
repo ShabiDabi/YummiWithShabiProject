@@ -41,7 +41,7 @@ public class ModelFirebase {
 
     ValueEventListener eventListener;
 
-    public void getAllStudents(final GetAllFeedItemsListener listener) {
+    public void getAllFeedItems(final GetAllFeedItemsListener listener) {
         DatabaseReference stRef = FirebaseDatabase.getInstance().getReference().child("feedItems");
 
         eventListener = stRef.addValueEventListener(new ValueEventListener() {
