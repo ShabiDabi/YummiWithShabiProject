@@ -1,3 +1,4 @@
+package com.example.mor.yammiwithshabi.model;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

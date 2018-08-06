@@ -1,6 +1,7 @@
 package com.example.mor.yammiwithshabi;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,11 +30,17 @@ public class HomePageActivity extends AppCompatActivity {
 
         SetupDrawer(toolbar);
 
-
+        if (savedInstanceState == null) {
+            FeedFragment fragment = new FeedFragment();
+            FragmentTransaction tran = getSupportFragmentManager().beginTransaction();
+            tran.add(R.id.main_container, fragment);
+            tran.addToBackStack("");
+            tran.commit();
+        }
 
         // Capture the layout's TextView and set the string as its text
-        TextView textView = findViewById(R.id.nameView);
-        textView.setText("Welcome " + user.getEmail());
+        //TextView textView = findViewById(R.id.nameView);
+        //textView.setText("Welcome " + user.getEmail());
     }
 
     private void SetupDrawer(Toolbar toolbar) {

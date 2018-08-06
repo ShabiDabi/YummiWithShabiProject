@@ -15,6 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/desertPicture"
         app:layout_constraintBottom_toTopOf="@+id/recipe_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,11 +37,12 @@
     <TextView
         android:id="@+id/user_email_text"
         android:layout_width="243dp"
-        android:layout_height="17dp"
+        android:layout_height="23dp"
         android:layout_marginTop="8dp"
         android:text="@string/ShowEmail"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,4 +70,19 @@
         app:layout_constraintEnd_toStartOf="@+id/add_comment_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recipe_text" />
+
+    <EditText
+        android:id="@+id/date_created"
+        android:layout_width="103dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/dateCreated"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/dessert_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user_email_text"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

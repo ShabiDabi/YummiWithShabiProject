@@ -1,3 +1,6 @@
+package com.example.mor.yammiwithshabi.model;
+
+
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.graphics.Bitmap;
@@ -17,9 +20,7 @@ import java.io.OutputStream;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by eliav.menachi on 09/05/2018.
- */
+
 
 public class Model {
     public static Model instance = new Model();

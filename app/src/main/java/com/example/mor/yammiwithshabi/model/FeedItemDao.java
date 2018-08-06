@@ -1,3 +1,4 @@
+package com.example.mor.yammiwithshabi.model;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;

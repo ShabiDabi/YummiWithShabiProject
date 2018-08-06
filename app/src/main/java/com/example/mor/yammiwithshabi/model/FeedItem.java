@@ -1,3 +1,4 @@
+package com.example.mor.yammiwithshabi.model;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
@@ -11,7 +12,7 @@ public class FeedItem {
     public String id;
     public String dateCreated;
     public String picture;
-    public String userID;
+    public String email;
     public String text;
 
 
@@ -19,8 +20,8 @@ public class FeedItem {
         return id;
     }
 
-    public String getUserId() {
-        return userID;
+    public String getEmail() {
+        return email;
     }
 
     public String getDateCreated() {
@@ -41,8 +42,8 @@ public class FeedItem {
         this.id = id;
     }
 
-    public void setUserId(String userID) {
-        this.userID = userID;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setbDateCreated(String date) {

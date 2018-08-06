@@ -1,3 +1,4 @@
+package com.example.mor.yammiwithshabi.model;
 
 import android.os.AsyncTask;
 
