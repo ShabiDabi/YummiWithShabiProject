@@ -15,4 +15,7 @@
     <string name="drawer_item_home">Feed</string>
     <string name="drawer_item_profile">Profile</string>
     <string name="drawer_item_logOut">Log Out</string>
+    <string name="dessert_recipe">recipe...</string>
+    <string name="addcommentText">type your comment...</string>
+    <string name="addcomment_button">send</string>
 </resources>
