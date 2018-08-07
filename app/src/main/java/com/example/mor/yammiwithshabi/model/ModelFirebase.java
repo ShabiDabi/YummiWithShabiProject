@@ -22,7 +22,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ModelFirebase {
-
     public void addSFeedItem(FeedItem feedItem){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("feedItems").child(feedItem.id).setValue(feedItem);
@@ -33,9 +32,6 @@ public class ModelFirebase {
         stRef.removeEventListener(eventListener);
     }
 
-
-
-
     interface GetAllFeedItemsListener{
         public void onSuccess(List<FeedItem> feedItems);
     }
@@ -43,6 +39,7 @@ public class ModelFirebase {
     ValueEventListener eventListener;
 
     public void getAllFeedItems(final GetAllFeedItemsListener listener) {
+        Log.d("TAG", "getAllFeedItems start");
         DatabaseReference stRef = FirebaseDatabase.getInstance().getReference().child("feedItems");
 
         eventListener = stRef.addValueEventListener(new ValueEventListener() {

@@ -26,7 +26,9 @@ public class Model {
     public static Model instance = new Model();
     ModelFirebase modelFirebase;
     private Model(){
+        Log.d("TAG", "Model.ctor: start");
         modelFirebase = new ModelFirebase();
+        Log.d("TAG", "Model.ctor: after creating ModelFirebase");
     }
 
     public void cancellGetAllFeedItens() {
@@ -34,9 +36,6 @@ public class Model {
     }
 
     class FeedItemsListData extends  MutableLiveData<List<FeedItem>>{
-
-
-
         @Override
         protected void onActive() {
             super.onActive();
@@ -78,7 +77,6 @@ public class Model {
 
         public FeedItemsListData() {
             super();
-
             setValue(new LinkedList<FeedItem>());
         }
     }
@@ -86,20 +84,20 @@ public class Model {
     FeedItemsListData feedItemListData = new FeedItemsListData();
 
     public LiveData<List<FeedItem>> getAllFeedItems(){
+        Log.d("TAG", "Model.getAllFeedItems");
         return feedItemListData;
     }
 
     public void addFeedItem(FeedItem feedItem){
+        Log.d("TAG", "Model.addFeedItem start");
         modelFirebase.addSFeedItem(feedItem);
     }
 
 
 
     ////////////////////////////////////////////////////////
-    //  HAndle Image Files
+    //  Handle Image Files
     ////////////////////////////////////////////////////////
-
-
 
     public interface SaveImageListener{
         void onDone(String url);
