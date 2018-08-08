@@ -102,9 +102,17 @@ public class HomePageActivity extends AppCompatActivity {
 
                         long id = drawerItem.getIdentifier();
 
-                        if (id == 3){
+                        if (id == 1) {
+                            FeedFragment fragment = new FeedFragment();
+                            FragmentTransaction tran = getSupportFragmentManager().beginTransaction();
+                            tran.add(R.id.main_container, fragment);
+                            tran.addToBackStack("");
+                            tran.commit();
 
-                            startActivity(intent);
+                        } else if (id == 3){
+
+                            //startActivity(intent);
+                            finish();
                             return true;
                         }
 
