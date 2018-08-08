@@ -105,11 +105,18 @@ public class HomePageActivity extends AppCompatActivity {
                         if (id == 1) {
                             FeedFragment fragment = new FeedFragment();
                             FragmentTransaction tran = getSupportFragmentManager().beginTransaction();
-                            tran.add(R.id.main_container, fragment);
+                            tran.replace(R.id.main_container, fragment);
                             tran.addToBackStack("");
                             tran.commit();
 
-                        } else if (id == 3){
+                        }else if (id == 2) {
+                            NewFeedItemFragment fragment = new NewFeedItemFragment();
+                            FragmentTransaction tran = getSupportFragmentManager().beginTransaction();
+                            tran.replace(R.id.main_container, fragment);
+                            tran.addToBackStack("");
+                            tran.commit();
+
+                        }else if (id == 3){
 
                             //startActivity(intent);
                             finish();

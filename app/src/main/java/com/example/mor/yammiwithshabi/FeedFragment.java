@@ -4,7 +4,6 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -22,10 +20,7 @@ import android.widget.TextView;
 
 import com.example.mor.yammiwithshabi.model.FeedItem;
 import com.example.mor.yammiwithshabi.model.Model;
-import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 
@@ -119,7 +114,7 @@ public class FeedFragment extends Fragment {
             TextView email = view.findViewById(R.id.user_email_text);
             TextView recipe = view.findViewById(R.id.recipe_text);
             EditText date = view.findViewById(R.id.date_created);
-            final ImageView dessertPicture = view.findViewById(R.id.dessert_image);
+            final ImageView dessertPicture = view.findViewById(R.id.new_dessert_picture);
 
 
             email.setText(currFeedItem.getEmail());

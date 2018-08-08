@@ -70,7 +70,7 @@ public class ModelFirebase {
 
         Date d = new Date();
         String name = ""+ d.getTime();
-        StorageReference imagesRef = storage.getReference().child("images").child(name);
+        StorageReference imagesRef = storage.getReference().child("pictures").child(name);
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);

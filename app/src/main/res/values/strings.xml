@@ -13,11 +13,15 @@
     <string name="feed">Feed</string>
     <string name="logOut">Log out</string>
     <string name="drawer_item_home">Feed</string>
-    <string name="drawer_item_profile">Profile</string>
+    <string name="drawer_item_profile">Add new recipe</string>
     <string name="drawer_item_logOut">Log Out</string>
     <string name="dessert_recipe">recipe...</string>
     <string name="addcommentText">type your comment...</string>
     <string name="addcomment_button">send</string>
     <string name="desertPicture">desertPicture</string>
     <string name="dateCreated">Date Created</string>
+    <string name="newDessertPicture">NewDessertPicture</string>
+    <string name="setPicture">set Image</string>
+    <string name="typeRecipe">Tell us your recipe...</string>
+    <string name="cancelButton">cancel</string>
 </resources>
