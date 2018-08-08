@@ -46,7 +46,11 @@ public class Model {
                 public void onComplete(List<FeedItem> data) {
                     // 2. update the live data with the new FeedItem list
                     setValue(data);
-                    Log.d("TAG","got feedItems from local DB " + data.size());
+                    Log.d("TAG","Model::FeedItemsListData.AsyncDao.onComplete: got feedItems from local DB " + data.size());
+
+                    for (FeedItem fi:data) {
+                        Log.d("TAG", "Model::FeedItemsListData.AsyncDao.onComplete: current feedItem: id = " + fi.id + ", picture = " + fi.picture);
+                    }
 
                     // 3. get the feedItem list from firebase
                     modelFirebase.getAllFeedItems(new ModelFirebase.GetAllFeedItemsListener() {
@@ -54,7 +58,7 @@ public class Model {
                         public void onSuccess(List<FeedItem> feedItems) {
                             // 4. update the live data with the new feedItems list
                             setValue(feedItems);
-                            Log.d("TAG","got feedItems from firebase " + feedItems.size());
+                            Log.d("TAG","got feedItems from firebase, length = " + feedItems.size());
 
                             // 5. update the local DB
                             FeedItemAsyncDao.insertAll(feedItems, new FeedItemAsyncDao.FeedItemAsyncDaoListener<Boolean>() {
@@ -112,8 +116,10 @@ public class Model {
     public interface GetImageListener{
         void onDone(Bitmap imageBitmap);
     }
+
     public void getImage(final String url, final GetImageListener listener ){
         String localFileName = URLUtil.guessFileName(url, null, null);
+        Log.d("TAG","Model.getImage: url = " + url + ", localFilename = " + localFileName);
         final Bitmap image = loadImageFromFile(localFileName);
         if (image == null) {                                      //if image not found - try downloading it from parse
             modelFirebase.getImage(url, new GetImageListener() {
@@ -165,6 +171,7 @@ public class Model {
         Bitmap bitmap = null;
         try {
             File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            Log.d("TAG","Model.loadImageFromFile: imageFileName = " + imageFileName + ", dir = " + dir.getAbsolutePath().toString());
             File imageFile = new File(dir,imageFileName);
             InputStream inputStream = new FileInputStream(imageFile);
             bitmap = BitmapFactory.decodeStream(inputStream);

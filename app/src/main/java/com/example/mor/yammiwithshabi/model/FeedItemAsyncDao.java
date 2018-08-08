@@ -16,6 +16,7 @@ public class FeedItemAsyncDao {
         class MyAsynchTask extends AsyncTask<String,String,List<FeedItem>>{
             @Override
             protected List<FeedItem> doInBackground(String... strings) {
+                //AppLocalDb.db.feedItemDao().deleteAll();
                 Log.d("TAG", "FeedItemAsyncDao.getAll, class MyAsynchTask::doInBackground, strings = " + strings);
                 List<FeedItem> feedItems = AppLocalDb.db.feedItemDao().getAll();
                 Log.d("TAG", "FeedItemAsyncDao.getAll, MyAsynchTask::doInBackground, after AppLocalDb getAll");

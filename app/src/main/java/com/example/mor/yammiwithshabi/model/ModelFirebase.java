@@ -39,16 +39,18 @@ public class ModelFirebase {
     ValueEventListener eventListener;
 
     public void getAllFeedItems(final GetAllFeedItemsListener listener) {
-        Log.d("TAG", "getAllFeedItems start");
+        Log.d("TAG", "ModelFirebase.getAllFeedItems start");
         DatabaseReference stRef = FirebaseDatabase.getInstance().getReference().child("feedItems");
 
         eventListener = stRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d("TAG", "ModelFirebase.getAllFeedItems.eventListener.onDataChange start");
                 List<FeedItem> feedItems = new LinkedList<>();
 
                 for (DataSnapshot stSnapshot: dataSnapshot.getChildren()) {
                     FeedItem feedItem = stSnapshot.getValue(FeedItem.class);
+                    Log.d("TAG", "ModelFirebase.getAllFeedItems.eventListener.onDataChange in snapshot loop, feedItem: id = " + feedItem.id + ", picture = " + feedItem.picture);
                     feedItems.add(feedItem);
                 }
                 listener.onSuccess(feedItems);
@@ -92,9 +94,10 @@ public class ModelFirebase {
 
 
     public void getImage(String url, final Model.GetImageListener listener){
+        Log.d("TAG","ModelFirebase.getImage: url = " + url + ", starting");
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference httpsReference = storage.getReferenceFromUrl(url);
-        final long ONE_MEGABYTE = 1024 * 1024;
+        final long ONE_MEGABYTE = 1024 * 1024 *5;
         httpsReference.getBytes(3* ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {

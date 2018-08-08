@@ -124,21 +124,29 @@ public class FeedFragment extends Fragment {
 
             email.setText(currFeedItem.getEmail());
             recipe.setText(currFeedItem.getText());
+            Log.d("TAG","FeedFragment::MyAdapter.GetView: date created = " + currFeedItem.getDateCreated());
             date.setText(currFeedItem.getDateCreated());
+            dessertPicture.setTag(currFeedItem.id);
 
             if (currFeedItem.picture != null){
+                Log.d("TAG","FeedFragment::MyAdapter.GetView: picture = " + currFeedItem.picture);
                 Model.instance.getImage(currFeedItem.picture, new Model.GetImageListener() {
                     @Override
                     public void onDone(Bitmap imageBitmap) {
+
+                        Log.d("TAG","FeedFragment::MyAdapter.GetView: dessertPicture.getTag() = " + dessertPicture.getTag());
                         if (currFeedItem.id.equals(dessertPicture.getTag()) && imageBitmap != null) {
                             dessertPicture.setImageBitmap(imageBitmap);
                         }
                     }
                 });
-            }else{
-                dessertPicture.setImageResource(R.drawable.strawberry);
             }
+
             return view;
+            /*else{
+                dessertPicture.setImageResource(R.drawable.ic_launcher_background);
+            }
+            return view;*/
         }
     }
 }

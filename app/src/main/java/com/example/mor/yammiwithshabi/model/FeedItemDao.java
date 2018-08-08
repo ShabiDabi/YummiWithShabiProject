@@ -18,4 +18,7 @@ public interface FeedItemDao {
 
     @Delete
     void delete(FeedItem feedItem);
+
+    @Query("DELETE FROM FeedItem")
+    void deleteAll();
 }
